@@ -18,18 +18,19 @@ ForoHub es una aplicación backend de consola desarrollada con Spring Boot, que 
    cd ForoHub
 Configura la base de datos en application.properties:
 
-properties
-Copiar código
+properties:
+
 spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=ForoHub
 spring.datasource.username=<tu-usuario>
 spring.datasource.password=<tu-contraseña>
-JWT Secret Key: Define jwt.secret en application.properties:
 
-properties
-Copiar código
+JWT Secret Key: Define jwt.secret en application.properties: 
+
 jwt.secret=tu_llave_secreta_personalizada
 jwt.expiration=3600000
 Carga de datos inicial: La base de datos puede poblarse con datos iniciales mediante el archivo import.sql, ubicado en la carpeta src/main/resources.
+
+
 **Endpoints**
 Autenticación y Autorización (Integración con Spring Security y JWT)
 ForoHub protege sus endpoints mediante autenticación JWT y autorización a través de Spring Security. La autenticación se realiza mediante el endpoint /login, el cual devuelve un token JWT que debe incluirse en cada petición para autorizar el acceso a las diferentes funcionalidades de la API.
@@ -39,17 +40,20 @@ Request: JSON con username y password.
 Response: Token JWT para el acceso a otros endpoints.
 Autorización: Este token se debe enviar en el encabezado de cada solicitud como Authorization: Bearer <token>.
 Gestión de Usuarios
+
 /usuarios (POST): Crear un nuevo usuario.
 /usuarios/{id} (GET): Obtener un usuario específico por ID.
 /usuarios/{id} (PUT): Actualizar información de un usuario.
 /usuarios/{id} (DELETE): Eliminar un usuario específico.
 Gestión de Publicaciones
+
 /publicaciones (GET): Listar todas las publicaciones.
 /publicaciones (POST): Crear una nueva publicación.
 /publicaciones/{id} (GET): Obtener detalles de una publicación específica.
 /publicaciones/{id} (PUT): Actualizar una publicación.
 /publicaciones/{id} (DELETE): Eliminar una publicación.
 Comentarios
+
 /publicaciones/{id}/comentarios (POST): Agregar un comentario a una publicación.
 /publicaciones/{id}/comentarios/{comentarioId} (DELETE): Eliminar un comentario de una publicación.
 
